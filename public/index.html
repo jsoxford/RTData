@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+  <title>Pusher Test</title>
+</head>
+<body>
+  <h1>Example</h1>
+  <pre id="example"></pre>
+
+  <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
+  <script>
+    var pusher = new Pusher('<<PUSHER_KEY>>');
+    var channel = pusher.subscribe('example');
+    channel.bind('time', function(data) {
+      example.innerHTML = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
