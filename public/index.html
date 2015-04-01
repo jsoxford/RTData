@@ -8,12 +8,23 @@
   <h1>timer.js</h1>
   <pre id="example"></pre>
 
+
+  <h1>twitter-geo.js</h1>
+  <pre id="twitterGeo"></pre>
+
   <script src="https://js.pusher.com/2.2/pusher.min.js"></script>
   <script>
     var pusher = new Pusher('<<PUSHER_KEY>>');
+
     var channel = pusher.subscribe('example');
+
     channel.bind('time', function(data) {
-      example.innerHTML = JSON.stringify(data, null, 2);
+      example.textContent = JSON.stringify(data, null, 2);
     });
+
+    channel.bind('tweet-geo', function(data) {
+      twitterGeo.textContent = JSON.stringify(data, null, 2);
+    });
+    
   </script>
 </body>
