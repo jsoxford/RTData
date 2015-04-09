@@ -27,7 +27,7 @@ var stream = new tweets({
 stream.filter({locations:'-2.235718,51.186230,-0.686646,52.099757'});
 
 stream.on('tweet', function(t){
-  pusher.trigger('example', 'tweet-geo', t);
+  pusher.trigger('twitter-geo', 'tweet', t);
 });
 
 stream.on('reconnect', function(reconnect){

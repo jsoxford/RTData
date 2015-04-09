@@ -21,6 +21,7 @@
     "express": "^4.12.3",
     "pusher": "^1.0.4",
     "replacestream": "^2.1.0",
-    "tweets": "0.0.6"
+    "tweets": "0.0.6",
+    "user-stream": "0.0.7"
   }
 }
