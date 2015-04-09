@@ -8,11 +8,14 @@ var pusher = new Pusher({
   secret: process.env.PUSHER_SECRET
 });
 
+var count = 0;
+
 setInterval(function(){
   var now = new Date;
   pusher.trigger('time', 'tick', {
-    timestamp: +now,
     formatted: now.toTimeString(),
-    seconds:   now.getSeconds()
+    timestamp: +now,
+    seconds:   now.getSeconds(),
+    count:     count++
   });
-}, 15000);
+}, 10000);
