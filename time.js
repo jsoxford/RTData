@@ -15,4 +15,4 @@ setInterval(function(){
     formatted: now.toTimeString(),
     seconds:   now.getSeconds()
   });
-}, 10000);
+}, 15000);
