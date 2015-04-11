@@ -42,7 +42,7 @@ var getNewEvents = function(){
             }
         }
         for(i=0,len=newEvents.length;i<len;i++){
-            pusher.trigger('github', newEvents[i].type, newEvents[i]);
+            pusher.trigger('github', 'org-event', newEvents[i]);
         }
         now = new Date();
     });
