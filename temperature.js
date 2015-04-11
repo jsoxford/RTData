@@ -14,9 +14,15 @@ spark.on('login', function() {
     var time = data.published_at;
     console.log('Temp: ' + temp.temperature);
     console.log('Humidity: ' + temp.humidity);
-    pusher.trigger('temp', 'temp', { temperature: temp.temperature, timestamp: time });
-    pusher.trigger('temp', 'humidity', { humidity: temp.humidity, timestamp: time });
-    pusher.trigger('temp', 'all', { humidity: temp.humidity, temperature: temp.temperature, timestamp: time });
+    if(temp.temperature){
+      pusher.trigger('temp', 'temp', { temperature: temp.temperature, timestamp: time });
+    }
+    if(temp.humidity){
+      pusher.trigger('temp', 'humidity', { humidity: temp.humidity, timestamp: time });
+    }
+    if(temp.temperature && temp.humidity){
+      pusher.trigger('temp', 'all', { humidity: temp.humidity, temperature: temp.temperature, timestamp: time });
+    }
   });
 });
 
